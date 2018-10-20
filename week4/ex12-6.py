@@ -4,7 +4,7 @@
 # follow that link and repeat the process a number of times
 # report the last name you find
 
-import urllib.request, urllib.parse, urllib.error
+import urllib.request as urlreq, urllib.parse, urllib.error
 from bs4 import BeautifulSoup
 import ssl
 import re
@@ -14,7 +14,7 @@ ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
 
 url = input('Enter URL - ')
-html = urllib.request.urlopen(url, context=ctx).read()
+html = urlreq.urlopen(url, context=ctx).read()
 
 pos = int(input('Enter name position - '))
 repeats = int(input('Enter number of repeats - '))
@@ -36,4 +36,4 @@ for i in range(0,repeats) :
         j+= 1
 
     if i < repeats :
-        html = urllib.request.urlopen(url, context = ctx).read()
+        html = urlreq.urlopen(url, context = ctx).read()
